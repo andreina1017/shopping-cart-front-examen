@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Gestión de Productos</h2>
+        
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                Agregar Producto
+            </button>
+            <div class="input-group" style="width: 300px;">
+                <input type="text" class="form-control" placeholder="Buscar producto..." id="searchProduct">
+                <button class="btn btn-outline-secondary" type="button" id="searchProductBtn">Buscar</button>
+            </div>
+        </div>
+        
+        <div class="row" id="productsContainer">
+        </div>
+    </div>
+
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Nuevo Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="productTitle" class="form-label">Título</label>
+                                <input type="text" class="form-control" id="productTitle" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="productBrand" class="form-label">Marca</label>
+                                <input type="text" class="form-control" id="productBrand" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="productPrice" class="form-label">Precio</label>
+                                <input type="number" step="0.01" class="form-control" id="productPrice" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="productDiscount" class="form-label">Descuento (%)</label>
+                                <input type="number" step="0.01" class="form-control" id="productDiscount">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="productStock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="productStock" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label">Categoría</label>
+                            <select class="form-select" id="productCategory" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="smartphones">Smartphones</option>
+                                <option value="laptops">Laptops</option>
+                                <option value="fragrances">Fragancias</option>
+                                <option value="skincare">Cuidado de la piel</option>
+                                <option value="groceries">Comestibles</option>
+                                <option value="home-decoration">Decoración del hogar</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productThumbnail" class="form-label">URL de la imagen</label>
+                            <input type="url" class="form-control" id="productThumbnail" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveProductBtn">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
